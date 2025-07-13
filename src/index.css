@@ -4,6 +4,8 @@
 
 @layer base {
   body {
+    background-color: theme("colors.gray.900");
+    color: white;
     -webkit-tap-highlight-color: transparent;
   }
 }
