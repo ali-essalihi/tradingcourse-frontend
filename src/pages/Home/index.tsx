@@ -1,3 +1,11 @@
-export default function Home() {
-  return <h1>Home</h1>;
+import Hero from "./hero";
+
+function HomePage() {
+  return (
+    <div>
+      <Hero />
+    </div>
+  );
 }
+
+export default HomePage;
