@@ -4,7 +4,6 @@ function HomePage() {
   return (
     <div>
       <Hero />
-      {/* Ajoute d'autres sections ici */}
     </div>
   );
 }
