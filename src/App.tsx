@@ -4,6 +4,8 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { ErrorBoundary } from "react-error-boundary";
 import ErrorFallback from "./pages/ErrorFallback";
 import Root from "./pages/Root";
+import { UserContextProvider } from "./contexts/user";
+import { Toaster } from "react-hot-toast";
 
 // Lazy-loaded pages
 const Home = lazy(() => import("./pages/Home"));
@@ -23,14 +25,17 @@ function App() {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <BrowserRouter>
-        <Suspense fallback={<PageLoading />}>
-          <Routes>
-            <Route path="/" element={<Root />}>
-              <Route index element={<Home />} />
-              <Route path="*" element={<NotFound />} />
-            </Route>
-          </Routes>
-        </Suspense>
+        <UserContextProvider>
+          <Toaster position="top-center" />
+          <Suspense fallback={<PageLoading />}>
+            <Routes>
+              <Route path="/" element={<Root />}>
+                <Route index element={<Home />} />
+                <Route path="*" element={<NotFound />} />
+              </Route>
+            </Routes>
+          </Suspense>
+        </UserContextProvider>
       </BrowserRouter>
     </ErrorBoundary>
   );
