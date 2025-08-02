@@ -6,6 +6,13 @@
     <title>Trading Course</title>
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="preconnect" href="%VITE_API_BASE_URL%" />
+    <link
+      rel="preload"
+      href="%VITE_API_BASE_URL%/course"
+      as="fetch"
+      crossorigin="use-credentials"
+    />
   </head>
   <body>
     <div id="root"></div>
