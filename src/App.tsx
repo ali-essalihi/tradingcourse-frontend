@@ -12,6 +12,7 @@ import CourseRedirect from "./pages/Course/CourseRedirect";
 // Lazy-loaded pages
 const Home = lazy(() => import("./pages/Home"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const AuthError = lazy(() => import("./pages/AuthError"));
 const CourseLayout = lazy(() => import("./pages/Course/CourseLayout"));
 const CourseVideo = lazy(() => import("./pages/Course/CourseVideo"));
 
@@ -40,6 +41,7 @@ function App() {
                     <Route index element={<CourseRedirect />} />
                     <Route path=":id" element={<CourseVideo />} />
                   </Route>
+                  <Route path="error/auth_failed" element={<AuthError />} />
                   <Route path="*" element={<NotFound />} />
                 </Route>
               </Routes>
