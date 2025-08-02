@@ -63,7 +63,7 @@ export function CourseProvider({ children }: { children: React.ReactNode }) {
       totalSeconds: videos.reduce((acc, v) => acc + v.durationInSeconds, 0),
       findVideo
     };
-  }, [videos]);
+  }, [videos, findVideo]);
 
   return <CourseContext.Provider value={value}>{children}</CourseContext.Provider>;
 }

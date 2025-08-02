@@ -7,10 +7,13 @@ import Root from "./pages/Root";
 import { UserContextProvider } from "./contexts/user";
 import { Toaster } from "react-hot-toast";
 import { CourseProvider } from "./contexts/course";
+import CourseRedirect from "./pages/Course/CourseRedirect";
 
 // Lazy-loaded pages
 const Home = lazy(() => import("./pages/Home"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const CourseLayout = lazy(() => import("./pages/Course/CourseLayout"));
+const CourseVideo = lazy(() => import("./pages/Course/CourseVideo"));
 
 function PageLoading() {
   return (
@@ -33,6 +36,10 @@ function App() {
               <Routes>
                 <Route path="/" element={<Root />}>
                   <Route index element={<Home />} />
+                  <Route path="course" element={<CourseLayout />}>
+                    <Route index element={<CourseRedirect />} />
+                    <Route path=":id" element={<CourseVideo />} />
+                  </Route>
                   <Route path="*" element={<NotFound />} />
                 </Route>
               </Routes>
